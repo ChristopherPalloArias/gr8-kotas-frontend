@@ -3,7 +3,7 @@ name: CICD
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
 
   deploy: 
     needs: build
-    runs-on: aws-front  
+    runs-on: aws-front
     steps:
       - name: Pull image from docker hub
         run: docker pull christopherpallo2000/gr8-kotas:latest

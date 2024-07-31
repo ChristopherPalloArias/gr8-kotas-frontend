@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import axios from 'axios';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   const [newPassword, setNewPassword] = useState('');
   const [showNewPassword, setShowNewPassword] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const response = await axios.post('https://n6mww1kaka.execute-api.us-east-2.amazonaws.com/login/', { username, password, newPassword: showNewPassword ? newPassword : undefined });
